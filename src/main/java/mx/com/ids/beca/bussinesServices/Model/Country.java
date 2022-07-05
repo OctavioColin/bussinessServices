@@ -10,23 +10,26 @@ public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer country_id;
 
     private String code;
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
-    @JoinColumn(name = "id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "airport_id")
     private List<Airport> airports;
+
+    @OneToOne(mappedBy = "country", cascade = CascadeType.ALL)
+    private Employee employee;
 
 
     public Integer getId() {
-        return id;
+        return country_id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.country_id = id;
     }
 
     public String getCode() {
@@ -53,14 +56,22 @@ public class Country {
         this.airports = airports;
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     @Override
     public String toString() {
         return "Country{" +
-                "id=" + id +
+                "country_id=" + country_id +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", airports=" + airports +
+                ", employee=" + employee +
                 '}';
     }
 }

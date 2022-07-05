@@ -8,20 +8,20 @@ public class Airport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer airport_id;
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id")
     private Country country;
 
     public Integer getId() {
-        return id;
+        return airport_id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.airport_id = id;
     }
 
     public String getName() {
@@ -37,7 +37,7 @@ public class Airport {
     @Override
     public String toString() {
         return "Airport{" +
-                "id=" + id +
+                "id=" + airport_id +
                 ", name='" + name + '\'' +
                 '}';
     }
