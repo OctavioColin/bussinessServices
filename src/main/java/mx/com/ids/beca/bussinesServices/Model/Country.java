@@ -9,7 +9,7 @@ import java.util.List;
 public class Country {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer country_id;
 
     private String code;
