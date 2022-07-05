@@ -16,7 +16,7 @@ public class Language {
 
     private String name;
 
-    @ManyToMany(mappedBy = "likedLanguages")
+    @ManyToMany(mappedBy = "likedLanguages", cascade = CascadeType.PERSIST)
     private List<Employee> likes;
 
     public Integer getId() {

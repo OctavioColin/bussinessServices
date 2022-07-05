@@ -12,6 +12,10 @@ public class Airport {
 
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
+
     public Integer getId() {
         return id;
     }
@@ -27,6 +31,8 @@ public class Airport {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
     @Override
     public String toString() {

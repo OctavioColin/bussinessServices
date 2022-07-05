@@ -16,13 +16,10 @@ public class Country {
 
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "airport_id")
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @JoinColumn(name = "id")
     private List<Airport> airports;
 
-    @OneToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
 
     public Integer getId() {
         return id;
@@ -56,13 +53,6 @@ public class Country {
         this.airports = airports;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 
     @Override
     public String toString() {
@@ -71,7 +61,6 @@ public class Country {
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", airports=" + airports +
-                ", employee=" + employee +
                 '}';
     }
 }

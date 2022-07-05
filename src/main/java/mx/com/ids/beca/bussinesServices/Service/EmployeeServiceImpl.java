@@ -54,4 +54,9 @@ public class EmployeeServiceImpl implements EmployeeService{
             throw new RuntimeException("Record not found with id:" + employee.getId());
         }
     }
+
+    @Override
+    public Employee addEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
 }

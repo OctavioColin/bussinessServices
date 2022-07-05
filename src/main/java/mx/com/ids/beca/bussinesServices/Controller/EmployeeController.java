@@ -40,4 +40,9 @@ public class EmployeeController {
         employee.setId(id);
         return ResponseEntity.ok().body(this.employeeService.update(employee));
     }
+
+    @PostMapping("/apiv1/clientes/add")
+    public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
+        return ResponseEntity.ok().body(this.employeeService.addEmployee(employee));
+    }
 }
