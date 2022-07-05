@@ -3,10 +3,12 @@ package mx.com.ids.beca.bussinesServices.Service;
 import mx.com.ids.beca.bussinesServices.Model.Airport;
 import mx.com.ids.beca.bussinesServices.Repository.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AirportServiceImpl implements AirportService{
 
     @Autowired
